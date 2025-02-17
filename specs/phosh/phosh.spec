@@ -60,7 +60,7 @@ BuildRequires:	dbus-daemon
 BuildRequires:	desktop-file-utils
 BuildRequires:	systemd-rpm-macros
 
-Requires:	phoc >= 0.44.0
+Requires:	phoc >= 0.45.0
 Requires:	iio-sensor-proxy
 Requires:	gnome-session
 Requires:	gnome-shell
