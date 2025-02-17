@@ -119,9 +119,6 @@ mv libcall-ui-v%{libcall_ui_version} subprojects/libcall-ui
 install -d %{buildroot}%{_sysconfdir}/pam.d/
 cp %{SOURCE3} %{buildroot}%{_sysconfdir}/pam.d/
 
-install -d %{buildroot}%{_datadir}/applications
-desktop-file-install --dir %{buildroot}%{_datadir}/applications %{SOURCE4}
-
 %meson_install
 %find_lang %{name}
 
