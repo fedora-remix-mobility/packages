@@ -33,6 +33,14 @@ Requires: gsettings-desktop-schemas >= 47
 %description
 %{summary}. It can replace the default OSK squeekboard.
 
+%package phosh-osk-provider
+Summary:  Use phosh-osk-stub as Phosh's default OSK
+Requires: %{name}
+Provides: phosh-osk = 1.0
+
+%description phosh-osk-provider
+%{summary}.
+
 %prep
 %setup -q -n %{name}-v%{version_no_tilde _}
 
@@ -43,6 +51,7 @@ Requires: gsettings-desktop-schemas >= 47
 %install
 %meson_install
 %find_lang %{name}
+ln -s %{_datadir}/applications/%{_desktopid}.desktop %{buildroot}%{_datadir}/applications/sm.puri.OSK0.desktop
 
 # desktop-file-validate doesn't recognize Phosh as a valid session
 # So just yeet the OnlyShowIn= line, for now
@@ -57,7 +66,6 @@ xvfb-run sh <<HERE
 %meson_test
 HERE
 
-
 %files -f %{name}.lang
 %{_bindir}/phosh-osk-stub
 %{_datadir}/%{name}/completers/hunspell.completer
@@ -67,6 +75,9 @@ HERE
 %{_datadir}/glib-2.0/schemas/%{_schemaid}.enums.xml
 %{_datadir}/metainfo/%{_desktopid}.metainfo.xml
 %{_mandir}/man1/phosh-osk-stub.1.gz
+
+%files phosh-osk-provider
+%{_datadir}/applications/sm.puri.OSK0.desktop
 
 %changelog
 %autochangelog
