@@ -3,7 +3,7 @@
 
 Name:    phosh-osk-stub
 Version: 0.45.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: An alternative OSK for Phosh
 
 License: GPL-3.0-or-later
