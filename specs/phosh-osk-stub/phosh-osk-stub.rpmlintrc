@@ -1,0 +1,1 @@
+addFilter(r"spelling-error.* \b(squeekboard)\b")
