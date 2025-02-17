@@ -28,12 +28,7 @@ BuildRequires: pkgconfig(libfeedback-0.0)
 BuildRequires: pkgconfig(libhandy-1) >= 1.1.90
 BuildRequires: pkgconfig(wayland-protocols)
 
-Provides: phosh-osk
-Provides: %{_datadir}/applications/sm.puri.OSK0.desktop
-
 Requires: gsettings-desktop-schemas >= 47
-Requires(post): %{_sbindir}/alternatives
-Requires(postun): %{_sbindir}/alternatives
 
 %description
 %{summary}. It can replace the default OSK squeekboard.
@@ -62,22 +57,8 @@ xvfb-run sh <<HERE
 %meson_test
 HERE
 
-%post
-alternatives --install \
-    %{_datadir}/applications/sm.puri.OSK0.desktop \
-    phosh-osk \
-    %{_datadir}/applications/%{_desktopid}.desktop \
-    1
-
-%preun
-if [ $1 -eq 0 ] ; then
-  alternatives --remove \
-    phosh-osk \
-    %{_datadir}/applications/%{_desktopid}.desktop
-fi
 
 %files -f %{name}.lang
-%ghost %{_datadir}/applications/sm.puri.OSK0.desktop
 %{_bindir}/phosh-osk-stub
 %{_datadir}/%{name}/completers/hunspell.completer
 %{_datadir}/%{name}/layouts.json
