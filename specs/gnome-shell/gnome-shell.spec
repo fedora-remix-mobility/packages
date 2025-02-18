@@ -8,7 +8,7 @@
 %endif
 
 Name:           gnome-shell
-Version:        48~alpha
+Version:        47.3
 Release:        %autorelease
 Summary:        Window management and application launching for GNOME
 
@@ -27,14 +27,6 @@ Patch: 0001-status-keyboard-Add-a-catch-around-reload-call.patch
 Patch: 0002-status-keyboard-Load-keyboard-from-system-settings-i.patch
 Patch: 0003-status-keyboard-Use-gnome-desktop-API-for-getting-de.patch
 
-# Fix some things to be in Utilities
-# https://gitlab.gnome.org/GNOME/gnome-shell/-/merge_requests/3607
-Patch: 0001-data-List-Characters-and-Logs-in-the-Utilities-group.patch
-# Fix ordering in Utilities
-# https://gitlab.gnome.org/GNOME/gnome-shell/-/merge_requests/3609
-Patch: 0002-data-Correct-Utilities-category-ordering-add-comment.patch
-
-
 %define eds_version 3.45.1
 %define gnome_desktop_version 44.0-7
 %define glib2_version 2.79.2
@@ -42,19 +34,20 @@ Patch: 0002-data-Correct-Utilities-category-ordering-add-comment.patch
 %define gjs_version 1.73.1
 %define gtk4_version 4.0.0
 %define adwaita_version 1.5.0
-%define mutter_version 48~alpha
+%define mutter_version 47.0
 %define polkit_version 0.100
-%define gsettings_desktop_schemas_version 48~alpha
+%define gsettings_desktop_schemas_version 47~alpha
 %define ibus_version 1.5.2
 %define gnome_bluetooth_version 1:42.3
 %define gstreamer_version 1.4.5
-%define pipewire_version 0.3.49
+%define pipewire_version 0.3.0
 %define gnome_settings_daemon_version 3.37.1
 
 BuildRequires:  pkgconfig(bash-completion)
 BuildRequires:  gcc
 BuildRequires:  meson
 BuildRequires:  git
+BuildRequires:  pkgconfig(ibus-1.0) >= %{ibus_version}
 BuildRequires:  desktop-file-utils
 BuildRequires:  pkgconfig(libedataserver-1.2) >= %{eds_version}
 BuildRequires:  pkgconfig(gcr-4)
@@ -245,10 +238,8 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.gnome.Shell.Porta
 %{_datadir}/dbus-1/interfaces/org.gnome.Shell.PadOsd.xml
 %{_datadir}/dbus-1/interfaces/org.gnome.Shell.Screencast.xml
 %{_datadir}/dbus-1/interfaces/org.gnome.Shell.Screenshot.xml
-%{_datadir}/dbus-1/interfaces/org.gnome.Shell.ScreenTime.xml
 %{_datadir}/dbus-1/interfaces/org.gnome.ShellSearchProvider.xml
 %{_datadir}/dbus-1/interfaces/org.gnome.ShellSearchProvider2.xml
-%{_datadir}/desktop-directories/X-GNOME-Shell-Utilities.directory
 %{_datadir}/icons/hicolor/scalable/apps/org.gnome.Shell.Extensions.svg
 %{_datadir}/icons/hicolor/symbolic/apps/org.gnome.Shell.Extensions-symbolic.svg
 %{_userunitdir}/org.gnome.Shell-disable-extensions.service
