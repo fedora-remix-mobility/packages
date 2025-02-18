@@ -61,9 +61,9 @@ BuildRequires:	desktop-file-utils
 BuildRequires:	systemd-rpm-macros
 
 Requires:	gnome-session
+Requires:	gnome-settings-daemon
 Requires:	gnome-shell
 Requires:	hicolor-icon-theme
-Requires:	iio-sensor-proxy
 Requires:	lato-fonts
 Requires:	phoc >= 0.45.0
 Requires:	phosh-osk
