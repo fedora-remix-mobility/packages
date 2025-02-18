@@ -1,0 +1,46 @@
+From ca136d1c6214db5b5319158859342a06d9ad7ec5 Mon Sep 17 00:00:00 2001
+From: Adam Williamson <awilliam@redhat.com>
+Date: Tue, 21 Jan 2025 14:18:58 -0800
+Subject: [PATCH 1/2] data: List Characters and Logs in the Utilities group
+
+These have (Logs) or previously had (Characters) the
+X-GNOME-Utilities category in their .desktop file and so showed
+up in the Utilities folder (despite 152faae claiming that the
+category was "completely unused"). Characters had the category
+removed in
+https://gitlab.gnome.org/GNOME/gnome-characters/-/commit/210eb09
+in apparent expectation that it would be added to the list, but
+it seems it was not.
+
+We could restore consideration of the category, but I guess let's
+just list the apps instead? I don't know if any others are
+missing.
+
+Signed-off-by: Adam Williamson <awilliam@redhat.com>
+Part-of: <https://gitlab.gnome.org/GNOME/gnome-shell/-/merge_requests/3607>
+---
+ js/ui/appDisplay.js | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/js/ui/appDisplay.js b/js/ui/appDisplay.js
+index a0d1baf7b..56f3cca4b 100644
+--- a/js/ui/appDisplay.js
++++ b/js/ui/appDisplay.js
+@@ -63,12 +63,14 @@ const DEFAULT_FOLDERS = {
+             'org.freedesktop.GnomeAbrt.desktop',
+             'nm-connection-editor.desktop',
+             'org.gnome.baobab.desktop',
++            'org.gnome.Characters.desktop',
+             'org.gnome.Connections.desktop',
+             'org.gnome.DejaDup.desktop',
+             'org.gnome.DiskUtility.desktop',
+             'org.gnome.Evince.desktop',
+             'org.gnome.FileRoller.desktop',
+             'org.gnome.font-viewer.desktop',
++            'org.gnome.Logs.desktop',
+             'org.gnome.Loupe.desktop',
+             'org.freedesktop.MalcontentControl.desktop',
+             'org.gnome.seahorse.Application.desktop',
+-- 
+2.47.1
+
