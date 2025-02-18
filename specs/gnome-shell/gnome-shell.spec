@@ -181,6 +181,13 @@ advantage of the capabilities of modern graphics hardware and introduces
 innovative user interface concepts to provide a visually attractive and
 easy to use experience.
 
+%package common
+Summary: Common files used by %{name} and other shells
+BuildArch: noarch
+
+%description common
+%{summary}, such as Phosh.
+
 %prep
 %autosetup -S git -n %{name}-%{tarball_version}
 
@@ -219,7 +226,6 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.gnome.Shell.Porta
 %{_bindir}/gnome-extensions
 %{_bindir}/gnome-shell-extension-tool
 %{_bindir}/gnome-shell-test-tool
-%{_datadir}/glib-2.0/schemas/*.xml
 %{_datadir}/glib-2.0/schemas/00_org.gnome.shell.gschema.override
 %{_datadir}/applications/org.gnome.Shell.Extensions.desktop
 %{_datadir}/applications/org.gnome.Shell.desktop
@@ -263,6 +269,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.gnome.Shell.Porta
 %{_datadir}/icons/hicolor/symbolic/apps/org.gnome.Shell.CaptivePortal-symbolic.svg
 %{_libexecdir}/gnome-shell-portal-helper
 %endif
+
+%files common
+%{_datadir}/glib-2.0/schemas/*.xml
 
 %changelog
 %autochangelog
