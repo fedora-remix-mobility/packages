@@ -1,4 +1,4 @@
-%global tarball_version %%(echo %{version} | tr '~' '.')
+%global tarball_version 48.alpha
 %global major_version %%(cut -d "." -f 1 <<<%{tarball_version})
 
 %if 0%{?rhel}
