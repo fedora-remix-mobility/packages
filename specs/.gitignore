@@ -2,3 +2,4 @@
 *.rpm
 results_*/
 *-build/
+sources
