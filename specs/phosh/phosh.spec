@@ -60,12 +60,12 @@ BuildRequires:	dbus-daemon
 BuildRequires:	desktop-file-utils
 BuildRequires:	systemd-rpm-macros
 
-Requires:	phoc >= 0.45.0
-Requires:	iio-sensor-proxy
 Requires:	gnome-session
 Requires:	gnome-shell
-Requires:	lato-fonts
 Requires:	hicolor-icon-theme
+Requires:	iio-sensor-proxy
+Requires:	lato-fonts
+Requires:	phoc >= 0.45.0
 Requires:	phosh-osk
 
 Recommends:	squeekboard >= 1.21.0
