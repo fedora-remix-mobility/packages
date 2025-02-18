@@ -3,3 +3,4 @@
 results_*/
 *-build/
 sources
+*.tar.xz
