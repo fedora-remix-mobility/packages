@@ -62,9 +62,10 @@ BuildRequires:	systemd-rpm-macros
 
 Requires:	gnome-session
 Requires:	gnome-settings-daemon
-Requires:	gnome-shell
+Requires:	gnome-shell-common
 Requires:	hicolor-icon-theme
 Requires:	lato-fonts
+Requires:	mutter-common
 Requires:	phoc >= 0.45.0
 Requires:	phosh-osk
 
