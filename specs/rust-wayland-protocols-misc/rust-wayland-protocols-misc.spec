@@ -12,7 +12,7 @@ Summary:        Generated API for misc and deprecated wayland protocol extension
 License:        LGPL-2.1-or-later AND MIT
 URL:            https://crates.io/crates/wayland-protocols-misc
 Source:         %{crates_source}
-Source:         https://invent.kde.org/libraries/plasma-wayland-protocols/-/raw/master/COPYING.LIB?ref_type=heads
+Source:         https://invent.kde.org/libraries/plasma-wayland-protocols/-/raw/master/COPYING.LIB
 
 BuildRequires:  cargo-rpm-macros >= 24
 
