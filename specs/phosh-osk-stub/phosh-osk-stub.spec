@@ -35,6 +35,7 @@ Requires: gsettings-desktop-schemas >= 47
 
 %package phosh-osk-provider
 Summary:  Use phosh-osk-stub as Phosh's default OSK
+BuildArch: noarch
 Requires: %{name}
 Provides: phosh-osk = 1.0
 

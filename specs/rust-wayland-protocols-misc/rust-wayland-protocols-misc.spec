@@ -12,6 +12,7 @@ Summary:        Generated API for misc and deprecated wayland protocol extension
 License:        LGPL-2.1-or-later AND MIT
 URL:            https://crates.io/crates/wayland-protocols-misc
 Source:         %{crates_source}
+Source:         https://invent.kde.org/libraries/plasma-wayland-protocols/-/raw/master/COPYING.LIB?ref_type=heads
 
 BuildRequires:  cargo-rpm-macros >= 24
 
@@ -30,7 +31,7 @@ This package contains library source intended for building other packages which
 use the "%{crate}" crate.
 
 %files          devel
-%license %{crate_instdir}/LICENSE.txt
+%license LICENSE.txt LGPL-2.1
 %doc %{crate_instdir}/CHANGELOG.md
 %doc %{crate_instdir}/README.md
 %{crate_instdir}/
@@ -97,6 +98,7 @@ use the "wayland-server" feature of the "%{crate}" crate.
 
 %prep
 %autosetup -n %{crate}-%{version} -p1
+cp %{SOURCE1} LGPL-2.1
 %cargo_prep
 
 %generate_buildrequires
