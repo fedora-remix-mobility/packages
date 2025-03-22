@@ -113,11 +113,6 @@ chmod +x %{buildroot}%{_bindir}/squeekboard-entry
 cp tools/squeekboard-restyled %{buildroot}%{_bindir}
 chmod +x %{buildroot}%{_bindir}/squeekboard-restyled
 
-# TODO: remove when desktop-file-utils is updated with this MR:
-# https://src.fedoraproject.org/rpms/desktop-file-utils/pull-request/4
-sed -i 's/Phosh/X-Phosh/g' %{buildroot}%{_datadir}/applications/sm.puri.Squeekboard.desktop
-sed -i 's/X-X-Phosh/X-Phosh/g' %{buildroot}%{_datadir}/applications/sm.puri.Squeekboard.desktop
-
 ln -s sm.puri.Squeekboard.desktop \
       %{buildroot}%{_datadir}/applications/sm.puri.OSK0.desktop
 
@@ -127,7 +122,9 @@ ln -s sm.puri.Squeekboard.desktop \
 # ensure standard Rust compiler flags are set
 export RUSTFLAGS="%build_rustflags"
 %meson_test
-desktop-file-validate %{buildroot}/%{_datadir}/applications/sm.puri.Squeekboard.desktop
+# TODO: re-enable when desktop-file-utils is updated with this MR:
+# https://src.fedoraproject.org/rpms/desktop-file-utils/pull-request/4
+# desktop-file-validate %{buildroot}/%{_datadir}/applications/sm.puri.Squeekboard.desktop
 
 %files -f %{name}.lang
 %{_bindir}/squeekboard
