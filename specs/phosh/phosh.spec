@@ -67,10 +67,10 @@ Requires:	hicolor-icon-theme
 Requires:	lato-fonts
 Requires:	mutter-common
 Requires:	phoc >= 0.45.0
-Requires:	phosh-osk
+Requires:	phosh-osk = 1.0
 
-Recommends:	squeekboard >= 1.21.0
 Recommends:	phosh-mobile-settings
+Suggests:	squeekboard-phosh-osk-provider
 
 %description
 Phosh is a simple shell for Wayland compositors speaking the layer-surface
