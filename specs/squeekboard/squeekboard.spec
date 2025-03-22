@@ -83,6 +83,7 @@ Summary:  Use squeekboard as Phosh's default OSK
 BuildArch: noarch
 Requires: %{name}
 Provides: phosh-osk = 1.0
+Conflicts: phosh-osk
 
 %description phosh-osk-provider
 %{summary}.
