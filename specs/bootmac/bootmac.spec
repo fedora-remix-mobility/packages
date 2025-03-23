@@ -1,6 +1,6 @@
 Name:           bootmac
 Version:        0.6.0
-Release:        1%{?dist}
+Release:        %autorelease
 Summary:        Configures the MAC addresses of WLAN and Bluetooth interfaces at boot
 
 License:        GPL-3.0-or-later
