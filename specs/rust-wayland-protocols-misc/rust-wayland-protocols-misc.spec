@@ -31,7 +31,8 @@ This package contains library source intended for building other packages which
 use the "%{crate}" crate.
 
 %files          devel
-%license LICENSE.txt LGPL-2.1
+%license %{crate_instdir}/LICENSE.txt
+%license %{crate_instdir}/LICENSE-LGPL-2.1.txt
 %doc %{crate_instdir}/CHANGELOG.md
 %doc %{crate_instdir}/README.md
 %{crate_instdir}/
@@ -98,7 +99,7 @@ use the "wayland-server" feature of the "%{crate}" crate.
 
 %prep
 %autosetup -n %{crate}-%{version} -p1
-cp %{SOURCE1} LGPL-2.1
+cp %{SOURCE1} LICENSE-LGPL-2.1.txt
 %cargo_prep
 
 %generate_buildrequires
