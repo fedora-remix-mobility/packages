@@ -1,6 +1,6 @@
 Name:       hexagonrpc
 Version:    0.3.2
-Release:    0.1%{?dist}
+Release:    %autorelease
 Summary:    FastRPC ioctl wrapper and a reverse tunnel
 
 License:    GPLv3+
@@ -92,5 +92,4 @@ install -D -m 644 %{SOURCE5} %{buildroot}%{_udevrulesdir}/10-fastrpc.conf
 %{_includedir}/libhexagonrpc
 
 %changelog
-* Mon May 13 2024 marcin - 0.3.2-0.1
-- Initial packaging
+%autochangelog
