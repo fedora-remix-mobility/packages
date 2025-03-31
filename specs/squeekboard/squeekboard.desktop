@@ -1,8 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=Keyboard
-Comment=Squeekboard
-Exec=squeekboard-restyled
-X-GNOME-Autostart-enabled=true
-Hidden=false
-NoDisplay=false

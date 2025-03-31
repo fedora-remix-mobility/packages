@@ -1,3 +1,0 @@
-# squeekboard
-
-The squeekboard package
