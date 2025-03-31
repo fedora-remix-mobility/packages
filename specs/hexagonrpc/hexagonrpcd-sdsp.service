@@ -8,8 +8,8 @@ EnvironmentFile=/usr/share/hexagonrpcd/hexagonrpcd-sdsp.conf
 ExecStart=/usr/bin/hexagonrpcd -f /dev/fastrpc-sdsp -d sdsp -s -R ${hexagonrpcd_fw_dir}
 Restart=always
 RestartSec=3
-#User=fastrpc
-#Group=fastrpc
+User=fastrpc
+Group=fastrpc
 
 [Install]
 WantedBy=multi-user.target

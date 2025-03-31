@@ -11,11 +11,15 @@ Source1:    hexagonrpcd-adsp-rootpd.service
 Source2:    hexagonrpcd-adsp-sensorspd.service
 Source3:    hexagonrpcd-sdsp.service
 
+Source4:    sysusers.conf
 
 BuildRequires:  gcc
 BuildRequires:  meson
 BuildRequires:  systemd-rpm-macros
+BuildRequires:  systemd-rpm-macros
 Requires(post): systemd
+
+%{?sysusers_requires_compat}
 
 %description
 FastRPC ioctl wrapper and a reverse tunnel
@@ -52,6 +56,10 @@ mkdir -p $RPM_BUILD_ROOT%{_unitdir}
 install -D -m 644 %{SOURCE1} %{buildroot}%{_unitdir}/hexagonrpcd-adsp-rootpd.service
 install -D -m 644 %{SOURCE2} %{buildroot}%{_unitdir}/hexagonrpcd-adsp-sensorspd.service
 install -D -m 644 %{SOURCE3} %{buildroot}%{_unitdir}/hexagonrpcd-sdsp.service
+install -D -m 644 %{SOURCE4} %{buildroot}%{_sysusersdir}/fastrpc.conf
+
+%pre
+%sysusers_create_compat %{SOURCE3}
 
 %post
 %systemd_post hexagonrpcd-adsp-rootpd.service
@@ -75,6 +83,7 @@ install -D -m 644 %{SOURCE3} %{buildroot}%{_unitdir}/hexagonrpcd-sdsp.service
 %{_bindir}/hexagonrpcd
 %{_libdir}/libhexagonrpc.so
 %{_libexecdir}/hexagonrpc
+%{_sysusersdir}/fastrpc.conf
 
 %files devel
 %{_includedir}/libhexagonrpc
