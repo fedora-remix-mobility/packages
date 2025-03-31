@@ -12,6 +12,7 @@ Source2:    hexagonrpcd-adsp-sensorspd.service
 Source3:    hexagonrpcd-sdsp.service
 
 Source4:    sysusers.conf
+Source5:    10-fastrpc.rules
 
 BuildRequires:  gcc
 BuildRequires:  meson
@@ -57,6 +58,7 @@ install -D -m 644 %{SOURCE1} %{buildroot}%{_unitdir}/hexagonrpcd-adsp-rootpd.ser
 install -D -m 644 %{SOURCE2} %{buildroot}%{_unitdir}/hexagonrpcd-adsp-sensorspd.service
 install -D -m 644 %{SOURCE3} %{buildroot}%{_unitdir}/hexagonrpcd-sdsp.service
 install -D -m 644 %{SOURCE4} %{buildroot}%{_sysusersdir}/fastrpc.conf
+install -D -m 644 %{SOURCE5} %{buildroot}%{_udevrulesdir}/10-fastrpc.conf
 
 %pre
 %sysusers_create_compat %{SOURCE3}
@@ -84,6 +86,7 @@ install -D -m 644 %{SOURCE4} %{buildroot}%{_sysusersdir}/fastrpc.conf
 %{_libdir}/libhexagonrpc.so
 %{_libexecdir}/hexagonrpc
 %{_sysusersdir}/fastrpc.conf
+%{_udevrulesdir}/10-fastrpc.conf
 
 %files devel
 %{_includedir}/libhexagonrpc
