@@ -16,7 +16,7 @@ Patch:          %{url}/commit/352a39cd0c265ca522d9e2889f84246195355ac1.patch
 Patch:          %{url}/commit/10997ba7c43a3787a40b6b1b161408033e716374.patch
 # pd-mapper.service: don't start if /sys/class/remoteproc is empty
 # https://github.com/linux-msm/pd-mapper/pull/15
-Patch:          0001-pd-mapper.service-don-t-start-if-sys-class-remotepro.patch
+# Patch:          0001-pd-mapper.service-don-t-start-if-sys-class-remotepro.patch
 
 Patch:          https://patch-diff.githubusercontent.com/raw/linux-msm/pd-mapper/pull/14.patch
 
