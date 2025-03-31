@@ -1,0 +1,39 @@
+From 8a0eb77bf342cb975a506054eb8c1138d96f46ff Mon Sep 17 00:00:00 2001
+From: Adam Williamson <awilliam@redhat.com>
+Date: Fri, 19 Jul 2024 11:06:25 -0700
+Subject: [PATCH] pd-mapper.service: don't start if /sys/class/remoteproc is
+ empty
+
+If there are no maps, pd-mapper always errors out with message
+"no pd maps available". This means the service fails and shows
+up as failed in systemctl --failed, which is ugly and annoying.
+For Fedora, it's also against the release criteria - there should
+be no failed services on startup of a default install, but on
+a default aarch64 install, this service usually fails.
+
+To avoid this, let's add a condition saying not to try and start
+the service if /sys/class/remoteproc is not empty. Note this
+condition was added in systemd 244, but zbyzsek tells me that
+older systemd would not error out, it would just print a warning
+and ignore it, so that should be fine.
+
+Signed-off-by: Adam Williamson <awilliam@redhat.com>
+---
+ pd-mapper.service.in | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/pd-mapper.service.in b/pd-mapper.service.in
+index 09b594b..09b074d 100644
+--- a/pd-mapper.service.in
++++ b/pd-mapper.service.in
+@@ -2,6 +2,7 @@
+ Description=Qualcomm PD mapper service
+ Requires=qrtr-ns.service
+ After=qrtr-ns.service
++ConditionDirectoryNotEmpty=/sys/class/remoteproc
+ 
+ [Service]
+ ExecStart=PD_MAPPER_PATH/pd-mapper
+-- 
+2.45.2
+

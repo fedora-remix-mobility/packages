@@ -1,0 +1,26 @@
+From 352a39cd0c265ca522d9e2889f84246195355ac1 Mon Sep 17 00:00:00 2001
+From: Amit Pundir <amit.pundir@linaro.org>
+Date: Tue, 14 Apr 2020 22:48:17 +0530
+Subject: [PATCH] ANDROID: pd-mapper: Use /vendor/firmware path for AOSP
+
+Signed-off-by: Amit Pundir <amit.pundir@linaro.org>
+---
+ pd-mapper.c | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/pd-mapper.c b/pd-mapper.c
+index 7ce40a1..c43963b 100644
+--- a/pd-mapper.c
++++ b/pd-mapper.c
+@@ -193,7 +193,11 @@ static int pd_load_map(const char *file)
+ 	return 0;
+ }
+ 
++#ifndef ANDROID
+ #define FIRMWARE_BASE	"/lib/firmware/"
++#else
++#define FIRMWARE_BASE	"/vendor/firmware/"
++#endif
+ 
+ static int pd_enumerate_jsons(struct assoc *json_set)
+ {

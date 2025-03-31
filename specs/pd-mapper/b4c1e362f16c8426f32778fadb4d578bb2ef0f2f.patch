@@ -1,0 +1,46 @@
+From b4c1e362f16c8426f32778fadb4d578bb2ef0f2f Mon Sep 17 00:00:00 2001
+From: Brian Masney <bmasney@redhat.com>
+Date: Wed, 12 Oct 2022 07:44:03 -0400
+Subject: [PATCH] correct SIGSEGV when firmware is not present
+
+pd-mapper will fail to start due to a SIGSEGV when any of the firmware
+for the various remoteprocs are not present. ltrace isolated where the
+problem was:
+
+    ....
+    strlen("qcom/sc8280xp/LENOVO/21BX/qcadsp"...)                                       = 41
+    dirname(0xfffff9b66450, 0xfffff9b683b0, 36, 0xfffffff)                              = 0xfffff9b66450
+    strcat("/lib/firmware/", "qcom/sc8280xp/LENOVO/21BX")                               = "/lib/firmware/qcom/sc8280xp/LENO"...
+    opendir("/lib/firmware/qcom/sc8280xp/LENO"...)                                      = nil
+    readdir(nil <no return ...>
+    --- SIGSEGV (Segmentation fault) ---
+    +++ killed by SIGSEGV +++
+
+With this fix, pd-mapper now displays the following messages when the
+firmware is not present:
+
+    pd-mapper: Cannot open /lib/firmware/qcom/sc8280xp/LENOVO/21BX: No such file or directory
+    pd-mapper: Cannot open /lib/firmware/qcom/sc8280xp/LENOVO/21BX: No such file or directory
+    no pd maps available
+
+Signed-off-by: Brian Masney <bmasney@redhat.com>
+---
+ pd-mapper.c | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/pd-mapper.c b/pd-mapper.c
+index 10fe039..7ce40a1 100644
+--- a/pd-mapper.c
++++ b/pd-mapper.c
+@@ -251,6 +251,11 @@ static int pd_enumerate_jsons(struct assoc *json_set)
+ 		strcat(path, dirname(firmware_value));
+ 
+ 		fw_dir = opendir(path);
++		if (!fw_dir) {
++			warn("Cannot open %s", path);
++			continue;
++		}
++
+ 		while ((fw_de = readdir(fw_dir)) != NULL) {
+ 			if (!strcmp(fw_de->d_name, ".") || !strcmp(fw_de->d_name, ".."))
+ 				continue;

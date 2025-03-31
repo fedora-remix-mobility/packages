@@ -1,0 +1,25 @@
+From fa2ad72bda24c444dcd165b3b4c6e7af19353e46 Mon Sep 17 00:00:00 2001
+From: Tobias Heider <tobias.heider@canonical.com>
+Date: Tue, 18 Jun 2024 19:41:06 +0000
+Subject: [PATCH] pd-mapper.service: Drop qrtr-ns dependency
+
+qrtr-ns has moved to the kernel so we don't need the userland
+service.
+
+Signed-off-by: Tobias Heider <tobias.heider@canonical.com>
+---
+ pd-mapper.service.in | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/pd-mapper.service.in b/pd-mapper.service.in
+index 09b594b..33f5314 100644
+--- a/pd-mapper.service.in
++++ b/pd-mapper.service.in
+@@ -1,7 +1,5 @@
+ [Unit]
+ Description=Qualcomm PD mapper service
+-Requires=qrtr-ns.service
+-After=qrtr-ns.service
+ 
+ [Service]
+ ExecStart=PD_MAPPER_PATH/pd-mapper

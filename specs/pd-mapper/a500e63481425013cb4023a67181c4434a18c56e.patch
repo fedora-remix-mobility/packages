@@ -1,0 +1,27 @@
+From a500e63481425013cb4023a67181c4434a18c56e Mon Sep 17 00:00:00 2001
+From: Jami Kettunen <jami.kettunen@protonmail.com>
+Date: Fri, 6 Jan 2023 00:49:16 +0200
+Subject: [PATCH] Makefile: allow $(CFLAGS), $(LDFLAGS) override
+
+The caller might have specified CFLAGS or LDFLAGS. Let's respect those.
+---
+ Makefile | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index 908dbfd..bfa3cc6 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,9 +1,9 @@
+ PD_MAPPER := pd-mapper
+ 
+-CFLAGS := -Wall -g -O2
+-LDFLAGS := -lqrtr
+-
++CFLAGS += -Wall -g -O2
++LDFLAGS += -lqrtr
+ prefix ?= /usr/local
++
+ bindir := $(prefix)/bin
+ servicedir := $(prefix)/lib/systemd/system
+ 
