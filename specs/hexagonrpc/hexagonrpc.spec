@@ -57,9 +57,6 @@ install -D -m 644 %{SOURCE3} %{buildroot}%{_unitdir}/hexagonrpcd-adsp-sdsp.servi
 %systemd_post hexagonrpcd-adsp-rootpd.service
 %systemd_post hexagonrpcd-adsp-sensorspd.service
 %systemd_post hexagonrpcd-sdsp.service
-systemctl enable hexagonrpcd-adsp-rootpd.service
-systemctl enable hexagonrpcd-adsp-sensorspd.service
-systemctl enable hexagonrpcd-sdsp.service
 
 %preun
 %systemd_preun hexagonrpcd-adsp-rootpd.service
