@@ -1,0 +1,15 @@
+[Unit]
+Description=Daemon to support Qualcomm Hexagon SDSP virtual filesystem
+ConditionPathExists=/usr/share/hexagonrpcd/hexagonrpcd-sdsp.conf
+ConditionPathExists=/dev/fastrpc-sdsp
+
+[Service]
+EnvironmentFile=/usr/share/hexagonrpcd/hexagonrpcd-sdsp.conf
+ExecStart=/usr/bin/hexagonrpcd -f /dev/fastrpc-sdsp -d sdsp -s -R ${hexagonrpcd_fw_dir}
+Restart=always
+RestartSec=3
+#User=fastrpc
+#Group=fastrpc
+
+[Install]
+WantedBy=multi-user.target

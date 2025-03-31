@@ -1,0 +1,19 @@
+[Unit]
+Description=Daemon to support Qualcomm Hexagon ADSP virtual filesystem for SensorPD
+Conflicts=suspend.target
+Before=suspend.target
+ConditionPathExists=/usr/share/hexagonrpcd/hexagonrpcd-adsp-sensorspd.conf
+# This service shouldn't be run on devices with an SDSP
+ConditionPathExists=!/dev/fastrpc-sdsp
+ConditionPathExists=/dev/fastrpc-adsp
+
+[Service]
+EnvironmentFile=/usr/share/hexagonrpcd/hexagonrpcd-adsp-sensorspd.conf
+ExecStart=/usr/bin/hexagonrpcd -f /dev/fastrpc-adsp -d adsp -s -R ${hexagonrpcd_fw_dir}
+Restart=always
+RestartSec=3
+#User=fastrpc
+#Group=fastrpc
+
+[Install]
+WantedBy=multi-user.target
