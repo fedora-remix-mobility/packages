@@ -51,7 +51,7 @@ cp -a include/libhexagonrpc %{buildroot}%{_includedir}
 mkdir -p $RPM_BUILD_ROOT%{_unitdir}
 install -D -m 644 %{SOURCE1} %{buildroot}%{_unitdir}/hexagonrpcd-adsp-rootpd.service
 install -D -m 644 %{SOURCE2} %{buildroot}%{_unitdir}/hexagonrpcd-adsp-sensorspd.service
-install -D -m 644 %{SOURCE3} %{buildroot}%{_unitdir}/hexagonrpcd-adsp-sdsp.service
+install -D -m 644 %{SOURCE3} %{buildroot}%{_unitdir}/hexagonrpcd-sdsp.service
 
 %post
 %systemd_post hexagonrpcd-adsp-rootpd.service
