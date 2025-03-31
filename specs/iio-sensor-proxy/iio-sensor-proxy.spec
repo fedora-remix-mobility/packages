@@ -8,11 +8,22 @@ License:        GPL-3.0-or-later
 URL:            https://gitlab.freedesktop.org/hadess/iio-sensor-proxy/
 Source0:        %{url}/-/archive/%{version}/%{name}-%{version}.tar.gz
 
+Patch:          0001-iio-sensor-proxy-depend-on-libssc.patch
+Patch:          0002-proximity-support-SSC-proximity-sensor.patch
+Patch:          0003-light-support-SSC-light-sensor.patch
+Patch:          0004-accelerometer-support-SSC-accelerometer-sensor.patch
+Patch:          0005-compass-support-SSC-compass-sensor.patch
+Patch:          0006-data-add-libssc-udev-rules.patch
+Patch:          0007-data-iio-sensor-proxy.service.in-add-AF_QIPCRTR.patch
+Patch:          0008-drv-ssc-implement-set_polling.patch
+Patch:          0009-tests-integration-test-add-SSC-sensors.patch
+
 BuildRequires:  meson
 BuildRequires:  gcc
 BuildRequires:  gtk-doc
 BuildRequires:  pkgconfig(udev)
 BuildRequires:  pkgconfig(systemd)
+BuildRequires:  pkgconfig(libssc)
 BuildRequires:  pkgconfig(gio-2.0)
 BuildRequires:  pkgconfig(gudev-1.0)
 BuildRequires:  pkgconfig(polkit-gobject-1)
@@ -33,10 +44,10 @@ BuildArch:      noarch
 This package contains the documentation for %{name}.
 
 %prep
-%autosetup
+%autosetup -p1
 
 %build
-%meson -Dgtk_doc=true -Dgtk-tests=false
+%meson -Dgtk_doc=true -Dgtk-tests=false -Dssc-support=true
 %meson_build
 
 %install
@@ -57,7 +68,7 @@ This package contains the documentation for %{name}.
 %{_bindir}/monitor-sensor
 %{_libexecdir}/%{name}
 %{_unitdir}/%{name}.service
-%{_udevrulesdir}/*-%{name}.rules
+%{_udevrulesdir}/*-%{name}*.rules
 %{_datadir}/dbus-1/system.d/net.hadess.SensorProxy.conf
 %{_datadir}/polkit-1/actions/net.hadess.SensorProxy.policy
 
