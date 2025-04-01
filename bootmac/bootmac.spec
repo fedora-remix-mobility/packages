@@ -9,6 +9,9 @@ Source:         https://gitlab.postmarketos.org/postmarketOS/bootmac/-/archive/v
 
 BuildRequires:  systemd-rpm-macros
 
+# bootmac script uses hciconfig
+Requires:       bluez-deprecated
+
 %description
 %{summary}.
 
