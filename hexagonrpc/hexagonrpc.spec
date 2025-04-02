@@ -57,11 +57,12 @@ mkdir -p $RPM_BUILD_ROOT%{_unitdir}
 install -D -m 644 %{SOURCE1} %{buildroot}%{_unitdir}/hexagonrpcd-adsp-rootpd.service
 install -D -m 644 %{SOURCE2} %{buildroot}%{_unitdir}/hexagonrpcd-adsp-sensorspd.service
 install -D -m 644 %{SOURCE3} %{buildroot}%{_unitdir}/hexagonrpcd-sdsp.service
+
 install -D -m 644 %{SOURCE4} %{buildroot}%{_sysusersdir}/fastrpc.conf
 install -D -m 644 %{SOURCE5} %{buildroot}%{_udevrulesdir}/10-fastrpc.conf
 
 %pre
-%sysusers_create_compat %{SOURCE3}
+%sysusers_create_compat %{SOURCE4}
 
 %post
 %systemd_post hexagonrpcd-adsp-rootpd.service
