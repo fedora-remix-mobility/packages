@@ -12,9 +12,10 @@ Patch:          https://github.com/linux-msm/tqftpserv/pull/24.patch
 
 BuildRequires:  gcc
 BuildRequires:  meson
-BuildRequires:  systemd
 BuildRequires:  pkgconfig(libzstd)
 BuildRequires:  pkgconfig(qrtr)
+BuildRequires:  systemd
+BuildRequires:  systemd-rpm-macros
 
 %description
 %{summary}.
@@ -28,6 +29,15 @@ BuildRequires:  pkgconfig(qrtr)
 
 %install
 %meson_install
+
+%post
+%systemd_post %{name}.service
+
+%preun
+%systemd_preun %{name}.service
+
+%postun
+%systemd_postun_with_restart %{name}.service
 
 %files
 %{_bindir}/%{name}
