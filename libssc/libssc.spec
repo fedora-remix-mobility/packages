@@ -19,7 +19,8 @@ BuildRequires:  pkgconfig(qrtr)
 BuildRequires:  pkgconfig(udev)
 
 %description
-%{summary}.
+libssc is a library to expose the sensors managed by the Qualcomm Sensor
+Core found in many Qualcomm System-on-Chips (SoCs) from 2018 and onwards.
 
 %package devel
 Summary:	Development headers for libssc
