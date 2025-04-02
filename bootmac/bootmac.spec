@@ -7,6 +7,8 @@ License:        GPL-3.0-or-later
 URL:            https://gitlab.postmarketos.org/postmarketOS/bootmac/
 Source:         https://gitlab.postmarketos.org/postmarketOS/bootmac/-/archive/v%{version}/bootmac-v%{version}.tar.gz
 
+BuildArch:      noarch
+
 BuildRequires:  systemd-rpm-macros
 
 # bootmac script uses hciconfig
