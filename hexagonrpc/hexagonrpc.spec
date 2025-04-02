@@ -83,13 +83,13 @@ install -D -m 644 %{SOURCE5} %{buildroot}%{_udevrulesdir}/10-fastrpc.conf
 %license COPYING
 %{_unitdir}/*.service
 %{_bindir}/hexagonrpcd
-%{_libdir}/libhexagonrpc.so
 %{_libexecdir}/hexagonrpc
 %{_sysusersdir}/fastrpc.conf
 %{_udevrulesdir}/10-fastrpc.conf
 
 %files devel
 %{_includedir}/libhexagonrpc
+%{_libdir}/libhexagonrpc.so
 
 %changelog
 %autochangelog
