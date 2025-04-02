@@ -1,0 +1,41 @@
+ucm2/Google/blueline/HiFi.conf
+ucm2/Google/blueline/blueline.conf
+ucm2/OnePlus/enchilada/HiFi.conf
+ucm2/OnePlus/enchilada/VoiceCall.conf
+ucm2/OnePlus/enchilada/enchilada.conf
+ucm2/OnePlus/fajita/HiFi.conf
+ucm2/OnePlus/fajita/VoiceCall.conf
+ucm2/OnePlus/fajita/fajita.conf
+ucm2/SHIFT/axolotl/HiFi.conf
+ucm2/SHIFT/axolotl/VoiceCall.conf
+ucm2/SHIFT/axolotl/axolotl.conf
+ucm2/SHIFT/axolotl/wcd934x/AdditionalMic1DisableSeq.conf
+ucm2/SHIFT/axolotl/wcd934x/AdditionalMic1EnableSeq.conf
+ucm2/SHIFT/axolotl/wcd934x/AdditionalMic2DisableSeq.conf
+ucm2/SHIFT/axolotl/wcd934x/AdditionalMic2EnableSeq.conf
+ucm2/SHIFT/axolotl/wcd934x/DefaultDisableSeq.conf
+ucm2/SHIFT/axolotl/wcd934x/DefaultEnableSeq.conf
+ucm2/SHIFT/axolotl/wcd934x/EarpieceDisableSeq.conf
+ucm2/SHIFT/axolotl/wcd934x/EarpieceEnableSeq.conf
+ucm2/SHIFT/axolotl/wcd934x/HeadphoneDisableSeq.conf
+ucm2/SHIFT/axolotl/wcd934x/HeadphoneEnableSeq.conf
+ucm2/SHIFT/axolotl/wcd934x/HeadphoneMicDisableSeq.conf
+ucm2/SHIFT/axolotl/wcd934x/HeadphoneMicEnableSeq.conf
+ucm2/SHIFT/axolotl/wcd934x/SpeakerDisableSeq.conf
+ucm2/SHIFT/axolotl/wcd934x/SpeakerEnableSeq.conf
+ucm2/SHIFT/axolotl/wcd934x/init.conf
+ucm2/Samsung/starqltechn/HiFi.conf
+ucm2/Samsung/starqltechn/VoiceCall.conf
+ucm2/Samsung/starqltechn/starqltechn.conf
+ucm2/Xiaomi/beryllium/HiFi.conf
+ucm2/Xiaomi/beryllium/VoiceCall.conf
+ucm2/Xiaomi/beryllium/beryllium.conf
+ucm2/conf.d/sdm845/Google Pixel 3.conf
+ucm2/conf.d/sdm845/OnePlus 6.conf
+ucm2/conf.d/sdm845/OnePlus 6T.conf
+ucm2/conf.d/sdm845/SHIFT6mq.conf
+ucm2/conf.d/sdm845/Samsung Galaxy S9.conf
+ucm2/conf.d/sdm845/Xiaomi Poco F1.conf
+ucm2/conf.d/sdm845/ayn-AYNOdinM2-Unknown.conf
+ucm2/conf.d/sdm845/oneplus-OnePlus6-.conf
+ucm2/conf.d/sdm845/oneplus-OnePlus6T-.conf
