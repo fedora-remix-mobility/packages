@@ -59,7 +59,7 @@ install -D -m 644 %{SOURCE2} %{buildroot}%{_unitdir}/hexagonrpcd-adsp-sensorspd.
 install -D -m 644 %{SOURCE3} %{buildroot}%{_unitdir}/hexagonrpcd-sdsp.service
 
 install -D -m 644 %{SOURCE4} %{buildroot}%{_sysusersdir}/fastrpc.conf
-install -D -m 644 %{SOURCE5} %{buildroot}%{_udevrulesdir}/10-fastrpc.conf
+install -D -m 644 %{SOURCE5} %{buildroot}%{_udevrulesdir}/10-fastrpc.rules
 
 %pre
 %sysusers_create_compat %{SOURCE4}
