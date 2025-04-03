@@ -86,7 +86,7 @@ install -D -m 644 %{SOURCE5} %{buildroot}%{_udevrulesdir}/10-fastrpc.rules
 %{_bindir}/hexagonrpcd
 %{_libexecdir}/hexagonrpc
 %{_sysusersdir}/fastrpc.conf
-%{_udevrulesdir}/10-fastrpc.conf
+%{_udevrulesdir}/10-fastrpc.rules
 
 %files devel
 %{_includedir}/libhexagonrpc
