@@ -1,0 +1,32 @@
+# Source: postmarketOS pmaports
+
+sensor:fastrpc:dt:fairphone,fp4*
+ ACCEL_MOUNT_MATRIX=-1, 0, 0; 0, -1, 0; 0, 0, -1
+
+sensor:fastrpc:dt:oneplus,enchilada*
+ ACCEL_MOUNT_MATRIX=-1, 0, 0; 0, -1, 0; 0, 0, -1
+
+sensor:fastrpc:dt:oneplus,fajita*
+ ACCEL_MOUNT_MATRIX=-1, 0, 0; 0, 1, 0; 0, 0, -1
+
+sensor:fastrpc:dt:qcom,sm7150*
+ ACCEL_MOUNT_MATRIX=-1, 0, 0; 0, -1, 0; 0, 0, -1
+
+sensor:fastrpc:dt:shift,axolotl*
+ ACCEL_MOUNT_MATRIX=-1, 0, 0; 0, -1, 0; 0, 0, -1
+
+sensor:fastrpc:dt:xiaomi,beryllium*
+ ACCEL_MOUNT_MATRIX=-1, 0, 0; 0, -1, 0; 0, 0, -1
+
+sensor:fastrpc:dt:xiaomi,elish*
+ ACCEL_MOUNT_MATRIX=-1, 0, 0; 0, -1, 0; 0, 0, -1
+
+sensor:fastrpc:dt:fairphone,fp5*
+ ACCEL_MOUNT_MATRIX=-1, 0, 0; 0, -1, 0; 0, 0, -1
+
+sensor:fastrpc:dt:lenovo,q706f*
+ ACCEL_MOUNT_MATRIX=0, 1, 0; -1, 0, 0; 0, 0, -1
+
+sensor:fastrpc:dt:xiaomi,miatoll*
+ ACCEL_MOUNT_MATRIX=-1, 0, 0; 0, -1, 0; 0, 0, -1
+

@@ -1,0 +1,6 @@
+ACTION=="remove", GOTO="sensor_mobility_end"
+
+SUBSYSTEM=="misc", KERNEL=="fastrpc-*", \
+  IMPORT{builtin}="hwdb 'sensor:fastrpc:dt:$attr{[devicetree/base]compatible}'"
+
+LABEL="sensor_mobility_end"
