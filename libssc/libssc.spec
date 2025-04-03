@@ -47,6 +47,7 @@ Requires:   %{name}%{?_isa} = %{?epoch:%{epoch}:}%{version}-%{release}
 %meson_install
 
 %files
+%license LICENSE
 %{_bindir}/ssc-server
 %{_bindir}/ssc-server-tests
 %{_bindir}/ssccli
