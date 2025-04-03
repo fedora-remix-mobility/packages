@@ -40,6 +40,7 @@ BuildRequires:  systemd-rpm-macros
 %systemd_postun_with_restart %{name}.service
 
 %files
+%license LICENSE
 %{_bindir}/%{name}
 %{_unitdir}/%{name}.service
 
