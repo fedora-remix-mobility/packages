@@ -1,0 +1,38 @@
+[Unit]
+Documentation=https://gitlab.postmarketos.org/postmarketOS/buffybox
+
+[Service]
+ExecStart=/usr/bin/buffyboard
+Restart=on-failure
+
+# Allow access to input devices, framebuffer, tty
+DevicePolicy=closed
+DeviceAllow=/dev/uinput rw
+DeviceAllow=char-fb rw
+DeviceAllow=char-input rw
+DeviceAllow=char-tty rw
+# udev requires some limited networking
+RestrictAddressFamilies=AF_NETLINK
+
+# Hardening
+CapabilityBoundingSet=
+NoNewPrivileges=true
+RestrictSUIDSGID=true
+PrivateMounts=true
+PrivateTmp=true
+PrivateUsers=true
+ProtectClock=true
+ProtectControlGroups=true
+ProtectHome=true
+ProtectHostname=true
+ProtectKernelLogs=true
+ProtectKernelModules=true
+ProtectKernelTunables=true
+ProtectSystem=strict
+RemoveIPC=true
+LockPersonality=true
+MemoryDenyWriteExecute=true
+SystemCallArchitectures=native
+SystemCallFilter=@system-service
+SystemCallFilter=~@privileged
+SystemCallFilter=~@resources
