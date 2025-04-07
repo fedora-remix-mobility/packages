@@ -26,8 +26,8 @@ framebuffer. It uses LVGL for input processing and rendering.
 cp ../COPYING ./
 
 %build
-# Once a newer release is published: -Dman=true -Dwith-drm=true
-#   -Dsystemd-buffyboard-service=true -Dsystemd-password-agent=true
+# Once a newer release is published:
+# -Dman=true -Dsystemd-buffyboard-service=true -Dsystemd-password-agent=true
 %meson
 %meson_build
 
