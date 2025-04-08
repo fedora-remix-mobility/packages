@@ -66,7 +66,6 @@ install -d ${RPM_BUILD_ROOT}/%{_udevrulesdir}
 %doc README.md
 %{_libdir}/libwacom.so.*
 %{_bindir}/libwacom-list-local-devices
-%{_bindir}/libwacom-update-db
 
 %{_mandir}/man1/libwacom-list-local-devices.1*
 
@@ -92,6 +91,7 @@ install -d ${RPM_BUILD_ROOT}/%{_udevrulesdir}
 %{_bindir}/libwacom-show-stylus
 %{_mandir}/man1/libwacom-list-devices.1*
 %{_mandir}/man1/libwacom-show-stylus.1*
+%{_bindir}/libwacom-update-db
 
 %changelog
 * Fri Mar 21 2025 Peter Hutterer <peter.hutterer@redhat.com> - 2.15.0-1
