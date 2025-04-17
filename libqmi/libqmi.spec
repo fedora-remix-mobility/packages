@@ -1,14 +1,10 @@
 Name: libqmi
-Version: 1.34.0
-Release: 7%{?dist}
+Version: 1.36.0
+Release: 1%{?dist}
 Summary: Support library to use the Qualcomm MSM Interface (QMI) protocol
 License: LGPL-2.1-or-later
 URL: http://freedesktop.org/software/libqmi
 Source: https://gitlab.freedesktop.org/mobile-broadband/libqmi/-/archive/%{version}/%{name}-%{version}.tar.bz2
-
-# upstream patch for big endian issue
-# https://gitlab.freedesktop.org/mobile-broadband/libqmi/-/commit/6662764338d3127924cfefaa9cf1b0cc4f90a189
-Patch0: 6662764338d3127924cfefaa9cf1b0cc4f90a189.patch
 
 BuildRequires: meson >= 0.53
 BuildRequires: gcc
@@ -99,6 +95,10 @@ cp -a src/qmicli/qmicli %{buildroot}%{_datadir}/bash-completion/completions/
 
 
 %changelog
+* Thu Apr 17 2025 Sam Day <me@samcday.com> - 1.36.0-1
+- update to 1.36.0
+- drop MR!367 patch
+
 * Mon Jan 20 2025 Fedora Release Engineering <releng@fedoraproject.org> - 1.34.0-7
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_42_Mass_Rebuild
 
