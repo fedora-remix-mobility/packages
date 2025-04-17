@@ -4,12 +4,12 @@
 %global qrtr_version %(pkg-config --modversion qrtr-glib 2>/dev/null || echo bad)
 
 Name: ModemManager
-Version: 1.22.0
-Release: 5%{?dist}
+Version: 1.24.0
+Release: 1%{?dist}
 Summary: Mobile broadband modem management service
 License: GPL-2.0-or-later
 URL: http://www.freedesktop.org/wiki/Software/ModemManager/
-Source: https://gitlab.com/linux-mobile-broadband/ModemManager/-/archive/%{version}/%{name}-%{version}.tar.bz2
+Source: https://gitlab.freedesktop.org/mobile-broadband/ModemManager/-/archive/%{version}/%{name}-%{version}.tar.bz2
 
 # For mbim-proxy and qmi-proxy
 Requires: libmbim-utils
@@ -144,7 +144,7 @@ cp -a cli/mmcli-completion %{buildroot}%{_datadir}/bash-completion/completions/m
 
 %files -f %{name}.lang
 %license COPYING
-%doc README
+%doc README.md
 %{_sysconfdir}/dbus-1/system.d/org.freedesktop.ModemManager1.conf
 %{_datadir}/dbus-1/system-services/org.freedesktop.ModemManager1.service
 %attr(0755,root,root) %{_sbindir}/ModemManager
@@ -190,6 +190,9 @@ cp -a cli/mmcli-completion %{buildroot}%{_datadir}/bash-completion/completions/m
 
 
 %changelog
+* Thu Apr 17 2025 Sam Day <me@samcday.com> - 1.24.0-1
+- update to 1.24.0
+
 * Thu Jan 16 2025 Fedora Release Engineering <releng@fedoraproject.org> - 1.22.0-5
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_42_Mass_Rebuild
 
