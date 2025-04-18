@@ -6,7 +6,7 @@ Summary: A library to support complex camera ISPs
 License: LGPL-2.1-or-later
 URL:     http://libcamera.org/
 
-Source0: %{name}-v%{version}.tar.bz2
+Source0: https://src.fedoraproject.org/repo/pkgs/libcamera/libcamera-v0.5.0.tar.bz2/sha512/a1520929cf77ba88a101e64e37c5400572e47422c5bf5a57a5b17915ba87ab4a62f3e4f8119bc3ddde91aaaf8425fe5406b24e6c72fb7e0bea47f168b8d7e1c8/libcamera-v0.5.0.tar.bz2
 Source1: qcam.desktop
 Source2: qcam.metainfo.xml
 Source3: 70-libcamera.rules
