@@ -1,0 +1,3 @@
+# libcamera
+
+The libcamera package
