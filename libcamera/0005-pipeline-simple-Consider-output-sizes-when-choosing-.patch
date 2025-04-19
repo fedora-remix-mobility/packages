@@ -1,0 +1,41 @@
+From 2210f0e547fde28af4ada5670766061f81191371 Mon Sep 17 00:00:00 2001
+From: Robert Mader <robert.mader@collabora.com>
+Date: Fri, 11 Oct 2024 20:13:24 +0200
+Subject: [PATCH 5/6] pipeline: simple: Consider output sizes when choosing
+ pipe config
+
+In order to avoid having to adjust the size further down below which
+again can break user assumptions. Notably, without this the capture size
+of 1920x1080 gets adjusted to 1912x1080 when used with the swISP using a
+bayer pattern width of 4, breaking users like Gstreamer down the line.
+
+Closes https://bugs.libcamera.org/show_bug.cgi?id=236
+
+Signed-off-by: Robert Mader <robert.mader@collabora.com>
+
+---
+
+I'm not really sure if this is the correct approach, but sending it out
+already for feedback. So far this gives me promissing results on tested
+devices.
+---
+ src/libcamera/pipeline/simple/simple.cpp | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/src/libcamera/pipeline/simple/simple.cpp b/src/libcamera/pipeline/simple/simple.cpp
+index dd8d3eef..f6442019 100644
+--- a/src/libcamera/pipeline/simple/simple.cpp
++++ b/src/libcamera/pipeline/simple/simple.cpp
+@@ -1052,7 +1052,8 @@ CameraConfiguration::Status SimpleCameraConfiguration::validate()
+ 		const Size &size = pipeConfig->captureSize;
+ 
+ 		if (size.width >= maxStreamSize.width &&
+-		    size.height >= maxStreamSize.height) {
++		    size.height >= maxStreamSize.height &&
++		    pipeConfig->outputSizes.contains(maxStreamSize)) {
+ 			if (!pipeConfig_ || size < pipeConfig_->captureSize)
+ 				pipeConfig_ = pipeConfig;
+ 		}
+-- 
+2.47.1
+

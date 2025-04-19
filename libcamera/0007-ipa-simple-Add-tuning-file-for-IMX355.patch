@@ -1,0 +1,50 @@
+From 95698af98be853e554938aaa8b98af563a3cfd7a Mon Sep 17 00:00:00 2001
+From: Robert Mader <robert.mader@collabora.com>
+Date: Sat, 19 Oct 2024 00:25:03 +0200
+Subject: [PATCH 07/10] ipa/simple: Add tuning file for IMX355
+
+64 at 10 bits. The value was guessed from known values for similar
+sensors and testing - on a Google Pixel 3a - suggest it's correct.
+
+Adding this tuning file is partly motivated in order to serve as
+example, as it's the first one for the simple IPA.
+
+Signed-off-by: Robert Mader <robert.mader@collabora.com>
+---
+ src/ipa/simple/data/imx355.yaml | 11 +++++++++++
+ src/ipa/simple/data/meson.build |  1 +
+ 2 files changed, 12 insertions(+)
+ create mode 100644 src/ipa/simple/data/imx355.yaml
+
+diff --git a/src/ipa/simple/data/imx355.yaml b/src/ipa/simple/data/imx355.yaml
+new file mode 100644
+index 00000000..f7d01b73
+--- /dev/null
++++ b/src/ipa/simple/data/imx355.yaml
+@@ -0,0 +1,11 @@
++# SPDX-License-Identifier: CC0-1.0
++%YAML 1.1
++---
++version: 1
++algorithms:
++  - BlackLevel:
++      blackLevel: 4096
++  - Awb:
++  - Lut:
++  - Agc:
++...
+diff --git a/src/ipa/simple/data/meson.build b/src/ipa/simple/data/meson.build
+index 92795ee4..6e690f82 100644
+--- a/src/ipa/simple/data/meson.build
++++ b/src/ipa/simple/data/meson.build
+@@ -1,6 +1,7 @@
+ # SPDX-License-Identifier: CC0-1.0
+ 
+ conf_files = files([
++    'imx355.yaml',
+     'uncalibrated.yaml',
+ ])
+ 
+-- 
+2.47.1
+

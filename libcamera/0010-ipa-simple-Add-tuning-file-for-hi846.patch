@@ -1,0 +1,44 @@
+From 77902b4d27db1e1b9f4cd9c8c85745bfa444b741 Mon Sep 17 00:00:00 2001
+From: Robert Mader <robert.mader@collabora.com>
+Date: Sun, 24 Nov 2024 18:21:52 +0100
+Subject: [PATCH 10/10] ipa/simple: Add tuning file for hi846
+
+Used by the Librem5
+---
+ src/ipa/simple/data/hi846.yaml  | 11 +++++++++++
+ src/ipa/simple/data/meson.build |  1 +
+ 2 files changed, 12 insertions(+)
+ create mode 100644 src/ipa/simple/data/hi846.yaml
+
+diff --git a/src/ipa/simple/data/hi846.yaml b/src/ipa/simple/data/hi846.yaml
+new file mode 100644
+index 00000000..f7d01b73
+--- /dev/null
++++ b/src/ipa/simple/data/hi846.yaml
+@@ -0,0 +1,11 @@
++# SPDX-License-Identifier: CC0-1.0
++%YAML 1.1
++---
++version: 1
++algorithms:
++  - BlackLevel:
++      blackLevel: 4096
++  - Awb:
++  - Lut:
++  - Agc:
++...
+diff --git a/src/ipa/simple/data/meson.build b/src/ipa/simple/data/meson.build
+index a763edc4..cae83a3d 100644
+--- a/src/ipa/simple/data/meson.build
++++ b/src/ipa/simple/data/meson.build
+@@ -1,6 +1,7 @@
+ # SPDX-License-Identifier: CC0-1.0
+ 
+ conf_files = files([
++    'hi846.yaml',
+     'imx355.yaml',
+     'imx363.yaml',
+     's5k3l6xx.yaml',
+-- 
+2.47.1
+

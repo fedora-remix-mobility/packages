@@ -1,0 +1,44 @@
+From 49ba0c5f835d4b8b43585fa50202b6014fb5fdbd Mon Sep 17 00:00:00 2001
+From: Robert Mader <robert.mader@collabora.com>
+Date: Sun, 24 Nov 2024 18:20:37 +0100
+Subject: [PATCH 09/10] ipa/simple: Add tuning file for s5k3l6xx
+
+Used by the Librem5
+---
+ src/ipa/simple/data/meson.build   |  1 +
+ src/ipa/simple/data/s5k3l6xx.yaml | 11 +++++++++++
+ 2 files changed, 12 insertions(+)
+ create mode 100644 src/ipa/simple/data/s5k3l6xx.yaml
+
+diff --git a/src/ipa/simple/data/meson.build b/src/ipa/simple/data/meson.build
+index 7d07d567..a763edc4 100644
+--- a/src/ipa/simple/data/meson.build
++++ b/src/ipa/simple/data/meson.build
+@@ -3,6 +3,7 @@
+ conf_files = files([
+     'imx355.yaml',
+     'imx363.yaml',
++    's5k3l6xx.yaml',
+     'uncalibrated.yaml',
+ ])
+ 
+diff --git a/src/ipa/simple/data/s5k3l6xx.yaml b/src/ipa/simple/data/s5k3l6xx.yaml
+new file mode 100644
+index 00000000..f7d01b73
+--- /dev/null
++++ b/src/ipa/simple/data/s5k3l6xx.yaml
+@@ -0,0 +1,11 @@
++# SPDX-License-Identifier: CC0-1.0
++%YAML 1.1
++---
++version: 1
++algorithms:
++  - BlackLevel:
++      blackLevel: 4096
++  - Awb:
++  - Lut:
++  - Agc:
++...
+-- 
+2.47.1
+

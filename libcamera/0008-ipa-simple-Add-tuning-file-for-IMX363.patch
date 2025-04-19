@@ -1,0 +1,47 @@
+From 52d64173755a337938d3f7f3d1b4b05d395a4c7d Mon Sep 17 00:00:00 2001
+From: Robert Mader <robert.mader@collabora.com>
+Date: Sat, 19 Oct 2024 17:06:12 +0200
+Subject: [PATCH 08/10] ipa/simple: Add tuning file for IMX363
+
+64 at 10 bits. The value was guessed from known values for similar
+sensors and testing - on a Google Pixel 3a - suggest it's correct.
+
+Signed-off-by: Robert Mader <robert.mader@collabora.com>
+---
+ src/ipa/simple/data/imx363.yaml | 11 +++++++++++
+ src/ipa/simple/data/meson.build |  1 +
+ 2 files changed, 12 insertions(+)
+ create mode 100644 src/ipa/simple/data/imx363.yaml
+
+diff --git a/src/ipa/simple/data/imx363.yaml b/src/ipa/simple/data/imx363.yaml
+new file mode 100644
+index 00000000..f7d01b73
+--- /dev/null
++++ b/src/ipa/simple/data/imx363.yaml
+@@ -0,0 +1,11 @@
++# SPDX-License-Identifier: CC0-1.0
++%YAML 1.1
++---
++version: 1
++algorithms:
++  - BlackLevel:
++      blackLevel: 4096
++  - Awb:
++  - Lut:
++  - Agc:
++...
+diff --git a/src/ipa/simple/data/meson.build b/src/ipa/simple/data/meson.build
+index 6e690f82..7d07d567 100644
+--- a/src/ipa/simple/data/meson.build
++++ b/src/ipa/simple/data/meson.build
+@@ -2,6 +2,7 @@
+ 
+ conf_files = files([
+     'imx355.yaml',
++    'imx363.yaml',
+     'uncalibrated.yaml',
+ ])
+ 
+-- 
+2.47.1
+

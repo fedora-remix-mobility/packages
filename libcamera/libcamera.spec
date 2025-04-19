@@ -11,7 +11,20 @@ Source1: qcam.desktop
 Source2: qcam.metainfo.xml
 Source3: 70-libcamera.rules
 
-Patch1: 0001-disable-rpi-pisp.patch
+Patch: 0001-disable-rpi-pisp.patch
+
+Patch: 0001-libcamera-simple-Enable-softwareISP-for-the-librem5.patch
+Patch: 0002-libcamera-simple-Force-disable-softwareISP-for-milli.patch
+Patch: 0003-libcamera-simple-Enable-softISP-for-the-Pinephone.patch
+Patch: 0004-libcamera-simple-Skip-hwISP-formats-if-swISP-is-acti.patch
+Patch: 0005-pipeline-simple-Consider-output-sizes-when-choosing-.patch
+Patch: 0006-pipeline-simple-Increase-internal-buffer-count-to-fo.patch
+Patch: 0007-ipa-simple-Add-tuning-file-for-IMX355.patch
+Patch: 0008-ipa-simple-Add-tuning-file-for-IMX363.patch
+Patch: 0009-ipa-simple-Add-tuning-file-for-s5k3l6xx.patch
+Patch: 0010-ipa-simple-Add-tuning-file-for-hi846.patch
+Patch: 0011-ipa-simple-Add-tuning-file-for-IMX371.patch
+Patch: 0012-ipa-simple-Add-tuning-file-for-IMX376.patch
 
 # libcamera does not currently build on these architectures
 ExcludeArch: s390x ppc64le

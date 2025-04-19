@@ -1,0 +1,44 @@
+From e277028b17e4b9454a50114a93dfa2722ef0a9f7 Mon Sep 17 00:00:00 2001
+From: Robert Mader <robert.mader@collabora.com>
+Date: Sat, 8 Mar 2025 10:39:44 +0100
+Subject: [PATCH 2/2] ipa/simple: Add tuning file for IMX376
+
+The value is guessed from similar IMX sensors.
+---
+ src/ipa/simple/data/imx376.yaml | 11 +++++++++++
+ src/ipa/simple/data/meson.build |  1 +
+ 2 files changed, 12 insertions(+)
+ create mode 100644 src/ipa/simple/data/imx376.yaml
+
+diff --git a/src/ipa/simple/data/imx376.yaml b/src/ipa/simple/data/imx376.yaml
+new file mode 100644
+index 000000000..f7d01b738
+--- /dev/null
++++ b/src/ipa/simple/data/imx376.yaml
+@@ -0,0 +1,11 @@
++# SPDX-License-Identifier: CC0-1.0
++%YAML 1.1
++---
++version: 1
++algorithms:
++  - BlackLevel:
++      blackLevel: 4096
++  - Awb:
++  - Lut:
++  - Agc:
++...
+diff --git a/src/ipa/simple/data/meson.build b/src/ipa/simple/data/meson.build
+index 19f90c976..e0c8e443a 100644
+--- a/src/ipa/simple/data/meson.build
++++ b/src/ipa/simple/data/meson.build
+@@ -5,6 +5,7 @@ conf_files = files([
+     'imx355.yaml',
+     'imx363.yaml',
+     'imx371.yaml',
++    'imx376.yaml',
+     's5k3l6xx.yaml',
+     'uncalibrated.yaml',
+ ])
+-- 
+2.48.1
+
