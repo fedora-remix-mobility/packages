@@ -5,7 +5,7 @@
 
 Name: ModemManager
 Version: 1.24.0
-Release: 1%{?dist}
+Release: %autorelease
 Summary: Mobile broadband modem management service
 License: GPL-2.0-or-later
 URL: http://www.freedesktop.org/wiki/Software/ModemManager/
