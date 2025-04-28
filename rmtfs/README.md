@@ -1,3 +1,0 @@
-# rmtfs
-
-The rmtfs package
